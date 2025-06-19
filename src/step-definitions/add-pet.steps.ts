@@ -6,7 +6,6 @@ import {
   validateJsonSchema,
 } from "../utils/helper";
 import postPetSchema from "../json_schema/post-pet.schema.json";
-import getListPetsSchema from "../json_schema/get-list-pets.schema.json";
 
 //load .feature files
 const feature = loadFeature("./features/pet/add-pet.feature");
