@@ -1,12 +1,15 @@
 import { defineFeature, loadFeature } from "jest-cucumber";
-import petController, {
-  BasePet,
-} from "../controller/pet/pet.controller";
-import { generatePetPayload, HTTP_STATUS, validateJsonSchema } from "../utils/helper";
+import petController, { BasePet } from "../controller/pet/pet.controller";
+import {
+  generatePetPayload,
+  HTTP_STATUS,
+  validateJsonSchema,
+} from "../utils/helper";
 import postPetSchema from "../json_schema/post-pet.schema.json";
 import getListPetsSchema from "../json_schema/get-list-pets.schema.json";
 
-const feature = loadFeature("./features/add-pet.feature");
+//load .feature files
+const feature = loadFeature("./features/pet/add-pet.feature");
 
 defineFeature(feature, (test) => {
   let payload: BasePet;
@@ -19,6 +22,7 @@ defineFeature(feature, (test) => {
     and,
   }) => {
     given(/^I have a pet payload with status "([^"]*)"$/, (petStatus) => {
+      //Get petStatus from Scenario outline
       payload = generatePetPayload({ status: petStatus });
     });
 
