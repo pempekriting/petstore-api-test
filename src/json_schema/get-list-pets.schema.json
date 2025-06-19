@@ -16,10 +16,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "id",
-          "name"
-        ]
+        "required": ["id", "name"]
       },
       "name": {
         "type": "string"
@@ -42,22 +39,13 @@
               "type": "string"
             }
           },
-          "required": [
-            "id",
-            "name"
-          ]
+          "required": ["id", "name"]
         }
       },
       "status": {
         "type": "string"
       }
     },
-    "required": [
-      "id",
-      "name",
-      "photoUrls",
-      "tags",
-      "status"
-    ]
+    "required": ["id", "name", "photoUrls", "tags", "status"]
   }
 }

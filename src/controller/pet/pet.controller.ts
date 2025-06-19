@@ -7,11 +7,11 @@ export enum PetStatus {
 }
 
 export interface BasePet {
-  category: {id: number; name: string},
-  name: string,
-  photoUrls: string[],
-  tags: {id: number, name: string}[];
-  status: PetStatus
+  category: { id: number; name: string };
+  name: string;
+  photoUrls: string[];
+  tags: { id: number; name: string }[];
+  status: PetStatus;
 }
 
 export interface Pet extends BasePet {
@@ -25,17 +25,19 @@ class PetController extends BaseClass {
       .send(bodyRequest);
   }
 
-  getPetById(petId: number){
-    return this.makeRequest(HttpMethod.GET, `/pet/${petId}`)
-    .set(`Content-Type`, `application/json`)
+  getPetById(petId: number) {
+    return this.makeRequest(HttpMethod.GET, `/pet/${petId}`).set(
+      `Content-Type`,
+      `application/json`,
+    );
   }
 
-  getListPetsByStatus(statusToFilter: string){
+  getListPetsByStatus(statusToFilter: string) {
     return this.makeRequest(HttpMethod.GET, `/pet/findByStatus`)
-    .set(`Content-Type`, `application/json`)
-    .query({
-      status: statusToFilter
-    })
+      .set(`Content-Type`, `application/json`)
+      .query({
+        status: statusToFilter,
+      });
   }
 }
 

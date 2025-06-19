@@ -32,16 +32,19 @@ describe(`Pet API`, () => {
     },
   );
 
-  test.each(petStatuses)(`As an API consumer, I can get list of pets based on %s`, async (status) => {
-    //Call API
-    const response = await petController.getListPetsByStatus(status);
+  test.each(petStatuses)(
+    `As an API consumer, I can get list of pets based on %s`,
+    async (status) => {
+      //Call API
+      const response = await petController.getListPetsByStatus(status);
 
-    //Assertion
-    expect(response.statusCode).toEqual(HTTP_STATUS.SUCCESS);
-    validateJsonSchema(getListPetsSchema, response.body)
-    response.body.forEach((petData): any => {
-      //Check every each data, especially for pet's status
-      expect(petData.status).toEqual(status);
-    });
-  })
+      //Assertion
+      expect(response.statusCode).toEqual(HTTP_STATUS.SUCCESS);
+      validateJsonSchema(getListPetsSchema, response.body);
+      response.body.forEach((petData): any => {
+        //Check every each data, especially for pet's status
+        expect(petData.status).toEqual(status);
+      });
+    },
+  );
 });
