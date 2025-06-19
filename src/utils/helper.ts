@@ -1,5 +1,6 @@
 import { Validator } from "jsonschema";
 import { faker } from "@faker-js/faker";
+import { BasePet, PetStatus } from "../controller/pet/pet.controller";
 
 const validator = new Validator();
 
@@ -14,13 +15,6 @@ export const HTTP_STATUS = {
   CREATED: 201,
 } as const;
 
-// Pet Status Enum
-export enum PetStatus {
-  AVAILABLE = "available",
-  PENDING = "pending",
-  SOLD = "sold",
-}
-
 // Validate json schema using jsonschema validator library
 export function validateJsonSchema(schema: object, data: any) {
   const result = validator.validate(data, schema);
@@ -34,7 +28,7 @@ export function validateJsonSchema(schema: object, data: any) {
 }
 
 // Re-usable function to generate pet payload and combine with faker.js
-export function generatePetPayload(overrides = {}) {
+export function generatePetPayload(overrides = {}): BasePet {
   return {
     category: {
       id: faker.number.int({ min: 1, max: 100 }),
@@ -48,7 +42,7 @@ export function generatePetPayload(overrides = {}) {
         name: faker.word.noun(),
       },
     ],
-    status: PetStatus,
+    status: PetStatus.AVAILABLE,
     ...overrides,
   };
 }

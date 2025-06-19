@@ -1,9 +1,25 @@
 import { BaseClass, HttpMethod } from "../base/base";
 
+export enum PetStatus {
+  AVAILABLE = "available",
+  PENDING = "pending",
+  SOLD = "sold",
+}
+
+export interface BasePet {
+  category: {id: number; name: string},
+  name: string,
+  photoUrls: string[],
+  tags: {id: number, name: string}[];
+  status: PetStatus
+}
+
+export interface Pet extends BasePet {
+  id: number;
+}
+
 class PetController extends BaseClass {
-  postAddNewPet(bodyRequest: {
-    [key: string]: string | number | string[] | object;
-  }) {
+  postAddNewPet(bodyRequest: BasePet) {
     return this.makeRequest(HttpMethod.POST, `/pet`)
       .set(`Content-Type`, `application/json`)
       .send(bodyRequest);

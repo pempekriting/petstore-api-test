@@ -1,8 +1,7 @@
-import petController from "../controller/pet/pet.controller";
+import petController, { PetStatus } from "../controller/pet/pet.controller";
 import {
   generatePetPayload,
   HTTP_STATUS,
-  PetStatus,
   validateJsonSchema,
 } from "../utils/helper";
 import postPetSchema from "../json_schema/post-pet.schema.json";
