@@ -118,8 +118,12 @@ Built and maintained by Kgs. Azzam Nizar.
 
 ## Report Evidence
 
-Report
+[HTML Report](https://pempekriting.github.io/petstore-api-test/reports/test-report.html)
+
+---
 
 ### Video Evidence
 
 ![](evidence/evidence-gif.gif)
+
+---
