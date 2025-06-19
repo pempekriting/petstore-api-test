@@ -43,7 +43,5 @@ yarn.lock
 allure-results
 allure-report
 
-reports
-
 data.json
 .aider*
